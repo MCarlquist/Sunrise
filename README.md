@@ -71,8 +71,14 @@ cd Sunrise
 cd app
 npm install
 
+# Start the frontend (development)
+npm run dev
+
 # Backend setup
 cd ../backend
 npm install
+
+# Start the backend (development)
+npm run dev
 
 
