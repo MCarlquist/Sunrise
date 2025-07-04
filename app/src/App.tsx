@@ -1,6 +1,13 @@
 import { useState } from 'react'
 import './App.scss'
 
+/**
+ * Renders the main application UI with a theme selection dropdown and a counter button.
+ *
+ * Displays a heading, a dropdown menu for selecting between multiple visual themes, a welcome message, and a button that increments and displays a count when clicked.
+ *
+ * @returns The rendered React component for the Sunrise application.
+ */
 function App() {
   const [count, setCount] = useState(0)
 
