@@ -17,3 +17,6 @@
 router.get('/', (req, res) => {
     res.json({ mood: 'happy to be alive today. It is only for today' });
 });
+
+export default router;
+
