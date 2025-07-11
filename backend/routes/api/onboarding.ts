@@ -17,5 +17,5 @@
  * // }
  */
 router.post('/', (req, res) => {
-    res.json({ message: "You're personalization is complete.", successful_onboarding: true });
+    res.json({ message: "Your personalization is complete.", successful_onboarding: true });
 });
