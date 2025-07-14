@@ -23,6 +23,7 @@ module.exports = {
           "error": "#f87272",
         },
         sunrise: {
+
           "primary": "#ff0000", // test with a simple hex color
           "primary-content": "oklch(97% 0.014 254.604)",
           "secondary": "oklch(62% 0.214 259.815)",
