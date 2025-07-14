@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "id": "1",
+    "userId": "user_123",
+    "text": "Take a short walk outside.",
+    "category": "wellness",
+    "mood": "neutral",
+    "timestamp": "2025-07-14T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "userId": "user_456",
+    "text": "Try a breathing exercise.",
+    "category": "relaxation",
+    "mood": "anxious",
+    "timestamp": "2025-07-14T10:05:00Z"
+  },
+  {
+    "id": "3",
+    "userId": "user_789",
+    "text": "Write down three things you're grateful for.",
+    "category": "reflection",
+    "mood": "positive",
+    "timestamp": "2025-07-14T10:10:00Z"
+  },
+  {
+    "id": "4",
+    "userId": "user_123",
+    "text": "Listen to your favorite song.",
+    "category": "wellness",
+    "mood": "happy",
+    "timestamp": "2025-07-14T10:15:00Z"
+  },
+  {
+    "id": "5",
+    "userId": "user_456",
+    "text": "Take five deep breaths.",
+    "category": "relaxation",
+    "mood": "calm",
+    "timestamp": "2025-07-14T10:20:00Z"
+  }
+]
