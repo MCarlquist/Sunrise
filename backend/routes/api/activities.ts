@@ -24,7 +24,7 @@ console.log('Activities router initialized');
     console.log('Suggestions sent to client:', response.text);
 
   } catch (error) {
-    console.error('Gemini API error:' + `${process.env.GEMINI_API_KEY}`);
+    console.error('Gemini API error!');
     console.error(error);
     res.status(500).json({ suggestions: ['Error fetching suggestions from Gemini AI.'] });
   }
