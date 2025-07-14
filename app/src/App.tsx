@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import './App.scss'
 
 /**
- * Renders the main application UI with a theme selection dropdown and a counter button.
+ * Renders the Sunrise application's main UI, including theme selection, mood-based activity suggestions, and a counter.
  *
- * Displays a heading, a dropdown menu for selecting between multiple visual themes, a welcome message, and a button that increments and displays a count when clicked.
+ * Provides a form for users to submit their mood and receive suggested activities, a dropdown to switch between visual themes, and a button to increment a counter. The selected theme is applied to the document root for dynamic styling.
  *
- * @returns The rendered React component for the Sunrise application.
+ * @returns The Sunrise application's React component.
  */
 function App() {
   const themes = [
