@@ -1,4 +1,4 @@
-# 🌅 Sunrise — AI-Powered Behavioral Activation & Spiritual Wellness App
+# 🌅 Sunset — AI-Powered Behavioral Activation & Spiritual Wellness App
 
 ### SonarCloud Status
 
