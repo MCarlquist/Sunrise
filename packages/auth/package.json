@@ -1,0 +1,22 @@
+{
+  "name": "@sunrise/auth",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "check-types": "tsc -b"
+  },
+  "dependencies": {
+    "@sunrise/db": "workspace:*",
+    "better-auth": "catalog:",
+    "mongodb": "^7.6.0",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@sunrise/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
