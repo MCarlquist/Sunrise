@@ -8,7 +8,7 @@ export const appRouter = {
   }),
   privateData: protectedProcedure.handler(({ context }) => {
     return {
-      message: "This is private",
+      message: "This is private dashboard",
       user: context.session?.user,
     };
   }),
