@@ -1,10 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { toast } from 'sonner'
 
 import { Slider } from '@sunrise/ui/components/slider'
 import { Textarea } from '@sunrise/ui/components/textarea'
 import { Button } from '@sunrise/ui/components/button'
 import { useForm } from '@tanstack/react-form'
 
+import { client } from '@/utils/orpc'
 
 export const Route = createFileRoute('/_auth/check-in')({
   component: RouteComponent,
@@ -46,11 +48,28 @@ function RouteComponent() {
     defaultValues: {
       mood: '',
       influence: '',
-      wellbeingScore: [0],
+      wellbeingScore: [1],
       notes: '',
     },
-    onSubmit: async (values) => {
-      console.log(values)
+    onSubmit: async ({ value }) => {
+      try {
+        await client.createCheckIn({
+          mood: value.mood as 'Happy' | 'Sad' | 'Angry' | 'Stressed',
+          influence: value.influence as
+            | 'Sleep'
+            | 'Work'
+            | 'Weather'
+            | 'Relationships'
+            | 'Being-Proud'
+            | 'Self-Recovery',
+          wellbeingScore: value.wellbeingScore ?? 1,
+          notes: value.notes,
+        })
+        toast.success('Check-in saved')
+        form.reset()
+      } catch (error) {
+        toast.error(error instanceof Error ? error.message : 'Unable to save check-in')
+      }
     },
   })
 
@@ -102,7 +121,7 @@ function RouteComponent() {
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onValueChange={(value) => field.handleChange(value as number[])}
-                    min={0}
+                    min={1}
                     max={10}
                     step={1}
                   />
@@ -151,7 +170,18 @@ function RouteComponent() {
             />
           </div>
           <div className='col-span-3 row-start-6 flex justify-end'>
-            <Button className='bg-green-500 text-white px-4 py-2 rounded' type='submit'>Save Check-in</Button>
+            <form.Subscribe
+              selector={(state) => state.isSubmitting}
+              children={(isSubmitting) => (
+                <Button
+                  className='bg-green-500 text-white px-4 py-2 rounded'
+                  disabled={isSubmitting}
+                  type='submit'
+                >
+                  {isSubmitting ? 'Saving...' : 'Save Check-in'}
+                </Button>
+              )}
+            />
           </div>
         </div>
       </form>
