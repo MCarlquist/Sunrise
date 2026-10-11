@@ -13,9 +13,14 @@ export function createAuth(
   database: Database,
   desktopOrigins: readonly string[] = [],
 ) {
+  const developmentOrigins =
+    process.env.NODE_ENV === "production"
+      ? []
+      : ["http://localhost:*", "http://127.0.0.1:*"];
+
   return betterAuth({
     database: mongodbAdapter(database),
-    trustedOrigins: [env.CORS_ORIGIN, ...desktopOrigins],
+    trustedOrigins: [env.CORS_ORIGIN, ...developmentOrigins, ...desktopOrigins],
     emailAndPassword: { enabled: true },
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL,

@@ -14,9 +14,23 @@ import { auth } from "./services";
 
 const app = express();
 
+const allowedOrigins = new Set([
+  ENV.CORS_ORIGIN,
+  ...(ENV.NODE_ENV === "production"
+    ? []
+    : ["http://localhost:5173", "http://127.0.0.1:5173"]),
+]);
+
 app.use(
   cors({
-    origin: ENV.CORS_ORIGIN,
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.has(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`Origin ${origin} is not allowed by CORS`));
+    },
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
