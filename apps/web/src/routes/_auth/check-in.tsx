@@ -62,7 +62,7 @@ function RouteComponent() {
             | 'Relationships'
             | 'Being-Proud'
             | 'Self-Recovery',
-          wellbeingScore: value.wellbeingScore ?? 1,
+          wellbeingScore: value.wellbeingScore[0] ?? 1,
           notes: value.notes,
         })
         toast.success('Check-in saved')
